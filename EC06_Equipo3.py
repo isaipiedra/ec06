@@ -20,7 +20,7 @@ for i in range(2):
     lista.remove(eliminar)
 diccionario={x:0 for x in lista}
 
-#procesar pedido
+
 """ 
 Función procesarPedido
 Guarda un pedido en el diccionario de pedidos
