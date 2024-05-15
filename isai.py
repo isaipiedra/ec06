@@ -1,13 +1,19 @@
 #procesar pedido
-
+""" 
+Función procesarPedido
+Guarda un pedido en el diccionario de pedidos
+Entradas: color: nombre del color, cantidadGalones: cantidad de galones para hacer el pedido.
+Salidas: N/A
+Restricciones: N/A
+"""
 def procesarPedido (color, cantidadGalones):
     global diccionario, limite
     try:
-        color = color.upper() 
+        color = color.upper().strip() 
         encontrado = False
 
         for llaves in diccionario.keys():
-            if llaves.upper() == color:
+            if llaves.upper().strip() == color:
                 encontrado = True
                 break
         
@@ -28,7 +34,7 @@ def procesarPedido (color, cantidadGalones):
             raise excFact(ValueError, "El valor rebasa el máximo permitido de pedidos por semana.")
         else:
             for llave, valor in diccionario.items():
-                if llave.upper() == color:
+                if llave.upper().strip() == color:
                     llave = valor + cantidadGalones
 
     except:
