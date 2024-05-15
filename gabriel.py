@@ -1,0 +1,1 @@
+#definir la tupla y eliminar dos colores aleatorios

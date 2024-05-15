@@ -1,0 +1,1 @@
+#presentar el registro de los pedidos y limpiar el diccionario
