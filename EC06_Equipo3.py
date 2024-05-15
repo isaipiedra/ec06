@@ -120,5 +120,7 @@ while opcion != "X":
         pedidos = dict() #limpiar el diccionario
         lista = [x for x in colores]
         pedidos = inciarSemana(lista) #vuelve a iniciar la semana
+    elif opcion == "X":
+        print("Terminando, gracias por usar.")
     else:
         print("Esta no es una opción válida.")
