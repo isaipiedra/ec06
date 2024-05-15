@@ -1,4 +1,17 @@
 import random
+
+
+"""
+Función excFact
+Se invoca con un raise excFact y tira un error
+Entradas: exception, msg: exception siendo un ValueError, msg siendo string del texto que se mostrará
+Salidas: exception(msg)
+Restricciones: exception, msg : exception siendo un ValueError y msg sinedo tipo str
+"""
+def excFact(exception, msg):
+    return exception(msg)
+
+
 limite=100
 colores=('Tanglewood', 'Opal Basil', 'Vocal Violet', 'Night Image', 'Lilac Murmur', 'Blue Sage', 'Harvest Moon', 
 'Apple Gold', 'Sea Star', 'Lime Slice', 'Garden Room', 'Flamingo', 'Kona Orange', 'Metro Brown', 
@@ -21,7 +34,9 @@ while opcion != 0:
             print(x)
         print("Escriba el nombre del color a encargar")
         Color = input()
-        if Color in lista:
+        try:
             Cantidad = int(input("Digite la cantidad que desea encargar\n"))
-        else:
-            print("El color digitado no está disponible")
+            procesarPedido(Color, Cantidad)
+        except:
+            raise excFact(ValueError,"El valor no es entero positivo.")
+        
