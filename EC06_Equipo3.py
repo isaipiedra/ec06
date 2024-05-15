@@ -10,8 +10,8 @@ def excFact(exception, msg):
     return exception(msg)
 
 
-limite=100
-colores=('Tanglewood', 'Opal Basil', 'Vocal Violet', 'Night Image', 'Lilac Murmur', 'Blue Sage', 'Harvest Moon', 
+limite = 100
+colores = ('Tanglewood', 'Opal Basil', 'Vocal Violet', 'Night Image', 'Lilac Murmur', 'Blue Sage', 'Harvest Moon', 
 'Apple Gold', 'Sea Star', 'Lime Slice', 'Garden Room', 'Flamingo', 'Kona Orange', 'Metro Brown', 
 'Cozy Peach', 'April Green', 'Safari Brown') 
 lista=[x for x in colores]
@@ -40,27 +40,34 @@ def procesarPedido (color, cantidadGalones):
                 break
         
         if not(encontrado):
-            raise excFact(ValueError, "El color no puede ser preparado.")
+            print(excFact(ValueError, "El color no puede ser preparado."))
     except:
-        raise excFact(ValueError, "El color no puede ser preparado.")
+        print(excFact(ValueError, "El color no puede ser preparado."))
     
     try:
         cantidadGalones = int(cantidadGalones)
         sumaPedidos = 0
         for valor in diccionario.values():
             sumaPedidos += valor
-
+    
         if cantidadGalones <= 0:
-            raise excFact(ValueError, "El valor no es entero positivo.")
-        elif cantidadGalones >= limite or cantidadGalones >= sumaPedidos:
-            raise excFact(ValueError, "El valor rebasa el máximo permitido de pedidos por semana.")
+            print(excFact(ValueError, "El valor no es entero positivo."))
+        elif cantidadGalones >= limite or cantidadGalones + sumaPedidos >= limite:
+            print(excFact(ValueError, "El valor rebasa el máximo permitido de pedidos por semana."))
         else:
             for llave, valor in diccionario.items():
                 if llave.upper().strip() == color:
                     llave = valor + cantidadGalones
 
     except:
-        raise excFact(ValueError, "El valor no es entero positivo.")
+        print(excFact(ValueError, "El valor no es entero positivo."))
+    
+def mostrar_colores_solicitados(diccionario):
+    diccionario_final = {}
+    for x in diccionario: 
+        if diccionario[x] > 0:
+            diccionario_final[x] = diccionario[x]
+    return diccionario_final
 
 #Menú
 opcion = 1
@@ -77,4 +84,12 @@ while opcion != 0:
             Cantidad = int(input("Digite la cantidad que desea encargar\n"))
             procesarPedido(Color, Cantidad)
         except:
-            raise excFact(ValueError,"El valor no es entero positivo.")
+            print(excFact(ValueError,"El valor no es entero positivo."))
+    elif opcion == 0:
+        pedido = mostrar_colores_solicitados(diccionario)
+        for llave, valor in pedido.items():
+            print(llave, ":", valor)
+        
+        diccionario = dict()
+    else:
+        print("Esta no es una opci+on válida.")
