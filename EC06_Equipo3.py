@@ -1,7 +1,7 @@
-xd=('Tanglewood', 'Opal Basil', 'Vocal Violet', 'Night Image', 'Lilac Murmur', 'Blue Sage', 'Harvest Moon', 
+colores=('Tanglewood', 'Opal Basil', 'Vocal Violet', 'Night Image', 'Lilac Murmur', 'Blue Sage', 'Harvest Moon', 
 'Apple Gold', 'Sea Star', 'Lime Slice', 'Garden Room', 'Flamingo', 'Kona Orange', 'Metro Brown', 
 'Cozy Peach', 'April Green', 'Safari Brown') 
-lista=[x for x in xd]
+lista=[x for x in colores]
 print(lista)
 for i in range(2):
     eliminar=random.choice(lista)
